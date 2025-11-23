@@ -135,9 +135,7 @@ class ScraperService
   # Full scrape workflow for Vercel organization
   # @param org_name [String] Organization name (default: "vercel")
   def scrape_full_workflow(org_name = "vercel")
-    puts "\n" + "="*60
     puts "Starting full scrape for organization: #{org_name}"
-    puts "="*60 + "\n"
     
     # Scrape all public repositories
     repos = scrape_org_repos(org_name)
