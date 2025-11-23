@@ -1,6 +1,9 @@
+require "securerandom"
+
 class PullRequestMapper
   def self.from_api(api_pr, repository_id)
-    PullRequest.new(
+    ::PullRequest.new(
+      id: SecureRandom.uuid,
       pr_id: api_pr["id"],
       repository_id: repository_id,
       number: api_pr["number"],

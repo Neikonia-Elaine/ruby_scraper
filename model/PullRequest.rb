@@ -1,10 +1,11 @@
 require "active_record"
+
 class PullRequest < ActiveRecord::Base
   # Table name: pull_requests
   # Columns:
-  #   id (integer, primary key)
+  #   id (string, primary key - UUID)
   #   pr_id (integer)
-  #   repository_id (integer, foreign key)
+  #   repository_id (string, foreign key - UUID)
   #   number (integer)
   #   title (string)
   #   updated_at (datetime)
@@ -16,6 +17,8 @@ class PullRequest < ActiveRecord::Base
   #   changed_files (integer)
   #   commits_count (integer)
   #   created_at (datetime)
+  
+  self.primary_key = 'id'
   
   belongs_to :repository
   has_many :reviews, foreign_key: :pull_request_id, dependent: :destroy

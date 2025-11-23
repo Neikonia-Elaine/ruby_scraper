@@ -1,11 +1,10 @@
+require "activerecord-import"
 require_relative "../model/repository"
 require_relative "../model/pullrequest"
 require_relative "../model/review"
 require_relative "../mapper/repositorymapper"
 require_relative "../mapper/pullrequestmapper"
 require_relative "../mapper/reviewmapper"
-require "activerecord-import"
-
 
 class DBService
 

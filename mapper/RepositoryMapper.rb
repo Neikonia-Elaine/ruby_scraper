@@ -1,6 +1,9 @@
+require "securerandom"
+
 class RepositoryMapper
   def self.from_api(api_repo)
-    Repository.new(
+    ::Repository.new(
+      id: SecureRandom.uuid,
       repo_id: api_repo["id"],
       repo_name: api_repo["name"],
       url: api_repo["html_url"],

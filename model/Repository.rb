@@ -1,15 +1,18 @@
 require "active_record" 
+
 class Repository < ActiveRecord::Base
   # Table name: repositories
   # Columns:
-  #   id (integer, primary key)
+  #   id (string, primary key - UUID)
   #   repo_id (integer)
   #   repo_name (string)
   #   url (string)
-  #   is_private (boolean) 0 for public, 1 for private
-  #   is_archived (boolean) 0 for not archived, 1 for archived
+  #   is_private (boolean)
+  #   is_archived (boolean)
   #   created_at (datetime)
   #   updated_at (datetime)
+  
+  self.primary_key = 'id'
   
   has_many :pull_requests, foreign_key: :repository_id, dependent: :destroy
   
